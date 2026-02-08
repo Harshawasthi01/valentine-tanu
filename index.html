@@ -6,10 +6,6 @@
 <title>For Tanu 💖</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
-
   body {
     margin: 0;
     min-height: 100vh;
@@ -17,32 +13,38 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #ffd6e8, #fff1f7);
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
-  .card {
+  .page {
+    display: none;
     background: white;
-    padding: 30px;
-    border-radius: 20px;
+    padding: 35px;
+    border-radius: 25px;
     text-align: center;
-    max-width: 320px;
-    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+    max-width: 360px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+  }
+
+  .page.active {
+    display: block;
   }
 
   h1 {
     color: #ff4d88;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   p {
     color: #555;
     font-size: 16px;
+    line-height: 1.6;
   }
 
   button {
-    margin: 10px;
-    padding: 10px 22px;
-    border-radius: 25px;
+    margin: 12px;
+    padding: 12px 26px;
+    border-radius: 30px;
     border: none;
     font-size: 15px;
     cursor: pointer;
@@ -53,22 +55,56 @@
     color: white;
   }
 
-  .no {
-    background: #ffd6e8;
+  .yes2 {
+    background: #ffe1ec;
     color: #ff4d88;
-  }
-
-  #msg {
-    margin-top: 20px;
-    color: #ff4d88;
-    font-size: 18px;
-    display: none;
+    font-weight: bold;
   }
 </style>
 </head>
 
 <body>
 
-  <div class="card">
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
     <h1>Tanu 💕</h1>
-    <p>Will you be my
+    <p>Will you be my Valentine?</p>
+
+    <button class="yes" onclick="goToPage(2)">Yes 💖</button>
+    <button class="yes2" onclick="goToPage(2)">Obviously Yes 😌</button>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+    <h1>About You 🌸</h1>
+    <p>
+      You are the kind of person who makes ordinary moments feel special.  
+      Your smile feels like comfort, your presence feels like home,  
+      and every little thing about you makes my world brighter.
+    </p>
+
+    <button class="yes" onclick="goToPage(3)">Next 💕</button>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+    <h1>💖</h1>
+    <p style="font-size:18px;">
+      Harsh loves you the most.  
+      More than words.  
+      More than distance.  
+      Always. 💕
+    </p>
+  </div>
+
+<script>
+  function goToPage(pageNumber) {
+    document.querySelectorAll('.page').forEach(page => {
+      page.classList.remove('active');
+    });
+    document.getElementById('page' + pageNumber).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
