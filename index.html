@@ -6,6 +6,10 @@
 <title>For Tanu 💖</title>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
@@ -14,31 +18,52 @@
     align-items: center;
     background: linear-gradient(135deg, #ffd6e8, #fff1f7);
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s infinite ease-in;
+    opacity: 0.6;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-10vh); opacity: 0; }
   }
 
   .page {
     display: none;
     background: white;
-    padding: 35px;
-    border-radius: 25px;
+    padding: 40px;
+    border-radius: 30px;
     text-align: center;
     max-width: 360px;
-    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.35);
+    animation: fadeIn 0.8s ease;
   }
 
   .page.active {
     display: block;
   }
 
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
   h1 {
     color: #ff4d88;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   p {
     color: #555;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   button {
@@ -48,14 +73,19 @@
     border: none;
     font-size: 15px;
     cursor: pointer;
+    transition: transform 0.2s;
   }
 
-  .yes {
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  .primary {
     background: #ff4d88;
     color: white;
   }
 
-  .yes2 {
+  .secondary {
     background: #ffe1ec;
     color: #ff4d88;
     font-weight: bold;
@@ -65,44 +95,60 @@
 
 <body>
 
-  <!-- PAGE 1 -->
-  <div class="page active" id="page1">
-    <h1>Tanu 💕</h1>
-    <p>Will you be my Valentine?</p>
+<!-- Floating hearts -->
+<script>
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💗";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDelay = Math.random() * 5 + "s";
+    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+  }
+</script>
 
-    <button class="yes" onclick="goToPage(2)">Yes 💖</button>
-    <button class="yes2" onclick="goToPage(2)">Obviously Yes 😌</button>
-  </div>
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Tanu 💕</h1>
+  <p>Will you be my Valentine? 💌</p>
 
-  <!-- PAGE 2 -->
-  <div class="page" id="page2">
-    <h1>About You 🌸</h1>
-    <p>
-      You are the kind of person who makes ordinary moments feel special.  
-      Your smile feels like comfort, your presence feels like home,  
-      and every little thing about you makes my world brighter.
-    </p>
+  <button class="primary" onclick="goToPage(2)">Yes 💖</button>
+  <button class="secondary" onclick="goToPage(2)">Obviously YES 😌💘</button>
+</div>
 
-    <button class="yes" onclick="goToPage(3)">Next 💕</button>
-  </div>
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>About You 🌸</h1>
+  <p>
+    You have this rare way of making everything feel softer 🌷  
+    Your smile feels like comfort,  
+    your laughter feels like home,  
+    and your presence turns ordinary days into something special ✨  
+    <br><br>
+    You’re not just someone I love…  
+    you’re someone my heart feels safe with 💞
+  </p>
 
-  <!-- PAGE 3 -->
-  <div class="page" id="page3">
-    <h1>💖</h1>
-    <p style="font-size:18px;">
-      Harsh loves you the most.  
-      More than words.  
-      More than distance.  
-      Always. 💕
-    </p>
-  </div>
+  <button class="primary" onclick="goToPage(3)">Next 💕</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>💖</h1>
+  <p style="font-size:18px;">
+    Harsh loves you the most 💞  
+    <br><br>
+    In every universe.  
+    In every lifetime.  
+    Always. ♾️✨
+  </p>
+</div>
 
 <script>
-  function goToPage(pageNumber) {
-    document.querySelectorAll('.page').forEach(page => {
-      page.classList.remove('active');
-    });
-    document.getElementById('page' + pageNumber).classList.add('active');
+  function goToPage(n) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page' + n).classList.add('active');
   }
 </script>
 
