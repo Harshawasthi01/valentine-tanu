@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Tanu 💖</title>
+<title>Only For You 💖</title>
 
 <style>
   * {
@@ -13,142 +13,171 @@
   body {
     margin: 0;
     min-height: 100vh;
+    background: linear-gradient(135deg, #ffd1e8, #fff5fa);
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
-    font-family: 'Poppins', sans-serif;
     overflow: hidden;
   }
 
   /* Floating hearts */
   .heart {
     position: absolute;
-    font-size: 20px;
-    animation: float 6s infinite ease-in;
+    animation: floatUp 8s linear infinite;
     opacity: 0.6;
   }
 
-  @keyframes float {
-    0% { transform: translateY(100vh); opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { transform: translateY(-10vh); opacity: 0; }
+  @keyframes floatUp {
+    from {
+      transform: translateY(110vh) scale(1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    to {
+      transform: translateY(-10vh) scale(1.4);
+      opacity: 0;
+    }
   }
 
+  /* Card */
   .page {
     display: none;
     background: white;
-    padding: 40px;
-    border-radius: 30px;
+    padding: 42px 35px;
+    border-radius: 32px;
     text-align: center;
-    max-width: 360px;
-    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.35);
-    animation: fadeIn 0.8s ease;
+    max-width: 380px;
+    box-shadow: 0 25px 60px rgba(255, 77, 136, 0.35);
+    animation: popIn 0.9s ease;
   }
 
   .page.active {
     display: block;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   h1 {
     color: #ff4d88;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    font-size: 28px;
   }
 
   p {
     color: #555;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 16.2px;
+    line-height: 1.75;
+  }
+
+  .cute {
+    font-size: 18px;
   }
 
   button {
-    margin: 12px;
-    padding: 12px 26px;
-    border-radius: 30px;
+    margin: 14px 8px;
+    padding: 13px 30px;
+    border-radius: 999px;
     border: none;
-    font-size: 15px;
+    font-size: 15.5px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
 
   button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(255, 77, 136, 0.35);
   }
 
   .primary {
-    background: #ff4d88;
+    background: linear-gradient(135deg, #ff4d88, #ff7ab3);
     color: white;
   }
 
   .secondary {
-    background: #ffe1ec;
+    background: #ffe3f0;
     color: #ff4d88;
-    font-weight: bold;
+    font-weight: 600;
   }
 </style>
 </head>
 
 <body>
 
-<!-- Floating hearts -->
 <script>
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDelay = Math.random() * 5 + "s";
-    heart.style.fontSize = (16 + Math.random() * 20) + "px";
-    document.body.appendChild(heart);
+  for (let i = 0; i < 20; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerText = Math.random() > 0.5 ? "💖" : "💗";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = (18 + Math.random() * 22) + "px";
+    h.style.animationDelay = Math.random() * 6 + "s";
+    document.body.appendChild(h);
   }
 </script>
 
 <!-- PAGE 1 -->
-<div class="page active" id="page1">
+<div class="page active" id="p1">
   <h1>Tanu 💕</h1>
-  <p>Will you be my Valentine? 💌</p>
+  <p class="cute">
+    Okay listen… be honest now 😌  
+    <br><br>
+    Will you be my Valentine? 💌
+  </p>
 
-  <button class="primary" onclick="goToPage(2)">Yes 💖</button>
-  <button class="secondary" onclick="goToPage(2)">Obviously YES 😌💘</button>
+  <button class="primary" onclick="go(2)">Yes 💖</button>
+  <button class="secondary" onclick="go(2)">Obviously YES 😏💘</button>
 </div>
 
 <!-- PAGE 2 -->
-<div class="page" id="page2">
-  <h1>About You 🌸</h1>
+<div class="page" id="p2">
+  <h1>About You 🌷</h1>
   <p>
-    You have this rare way of making everything feel softer 🌷  
-    Your smile feels like comfort,  
-    your laughter feels like home,  
-    and your presence turns ordinary days into something special ✨  
+    You have this magic that you probably don’t even realize ✨  
+    The way you smile so effortlessly, the way you make moments feel warmer,  
+    the way your presence alone feels like comfort.
     <br><br>
-    You’re not just someone I love…  
-    you’re someone my heart feels safe with 💞
+    With you, even silence feels sweet.  
+    Even ordinary days feel special.  
+    And somehow… my heart always feels a little lighter when it thinks of you 💞
+    <br><br>
+    You’re not just someone I love —  
+    you’re someone my heart chose, without any hesitation 💗
   </p>
 
-  <button class="primary" onclick="goToPage(3)">Next 💕</button>
+  <button class="primary" onclick="go(3)">Keep going 💕</button>
 </div>
 
 <!-- PAGE 3 -->
-<div class="page" id="page3">
-  <h1>💖</h1>
-  <p style="font-size:18px;">
-    Harsh loves you the most 💞  
+<div class="page" id="p3">
+  <h1>💘</h1>
+  <p class="cute">
+    Just so you know…  
     <br><br>
-    In every universe.  
-    In every lifetime.  
+    Harsh loves you the most 💞  
+    In every mood.  
+    In every version of you.  
+    In every lifetime.
+    <br><br>
     Always. ♾️✨
   </p>
 </div>
 
 <script>
-  function goToPage(n) {
+  function go(n) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page' + n).classList.add('active');
+    document.getElementById('p' + n).classList.add('active');
   }
 </script>
 
