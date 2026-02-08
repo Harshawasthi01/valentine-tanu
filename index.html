@@ -6,23 +6,27 @@
 <title>For Tanu 💖</title>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+    font-family: Arial, sans-serif;
   }
 
   .card {
     background: white;
-    padding: 40px;
-    border-radius: 25px;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.25);
-    max-width: 350px;
+    max-width: 320px;
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
   }
 
   h1 {
@@ -35,27 +39,13 @@
     font-size: 16px;
   }
 
-  .heart {
-    font-size: 60px;
-    animation: beat 1s infinite;
-  }
-
-  @keyframes beat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-  }
-
-  .buttons {
-    margin-top: 25px;
-  }
-
   button {
-    padding: 12px 25px;
-    font-size: 16px;
+    margin: 10px;
+    padding: 10px 22px;
+    border-radius: 25px;
     border: none;
-    border-radius: 30px;
+    font-size: 15px;
     cursor: pointer;
-    margin: 8px;
   }
 
   .yes {
@@ -68,43 +58,17 @@
     color: #ff4d88;
   }
 
-  .message {
+  #msg {
     margin-top: 20px;
-    font-size: 18px;
     color: #ff4d88;
+    font-size: 18px;
     display: none;
   }
 </style>
 </head>
 
 <body>
+
   <div class="card">
-    <div class="heart">💖</div>
-    <h1>Tanu 🌸</h1>
-    <p>Will you be my Valentine?</p>
-
-    <div class="buttons">
-      <button class="yes" onclick="yesClick()">Yes 💕</button>
-      <button class="no" onclick="noClick()">No 🙈</button>
-    </div>
-
-    <div class="message" id="msg"></div>
-  </div>
-
-<script>
-  function yesClick() {
-    document.getElementById("msg").style.display = "block";
-    document.getElementById("msg").innerText =
-      "Yayyy!! 💕 You just made my heart the happiest 💐✨";
-  }
-
-  function noClick() {
-    document.getElementById("msg").style.display = "block";
-    document.getElementById("msg").innerText =
-      "Aww 🥺 that's okay… you're still adorable 💗";
-  }
-</script>
-</body>
-</html>
-
-
+    <h1>Tanu 💕</h1>
+    <p>Will you be my
